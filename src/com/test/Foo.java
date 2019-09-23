@@ -6,7 +6,7 @@ public class Foo {
     }
 
     private static void test() {
-        System.out.println("I'm a test");
+        System.out.println("I'm a new test");
     }
 }
 
