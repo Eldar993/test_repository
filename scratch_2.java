@@ -1,25 +1,29 @@
 import java.util.Arrays;
 import java.util.Scanner;
-class Main {
+ 
+public class Main {
+ 
     public static void main(String[] args) {
-       Scanner scanner = new Scanner(System.in);
-       int n = scanner.nextInt();
-       String[][] arr = new String[n][n];
-        for (int i = 0;i < n -1;i++){
-            for(int j = 0;j < n;j++){
-                arr[n/2][j] = "*";
-                arr[i][n/2] = "*";
-                arr[i][i]=    "*";
-                //arr[i][j] = "*";
-                arr[i][j] = ".";
-            }
+        final Scanner scanner = new Scanner(System.in);
+ 
+         int size = scanner.nextInt();
+         char[][] matrix = new char[size][size];
+        for (int i = 0; i < matrix.length; i++) {
+            Arrays.fill(matrix[i], '.');
         }
-        for (int i = 0;i < n;i++){
-            for(int j = 0;j < n;j++){
-               System.out.print(arr[i][j] + " ");
+ 
+        for (int i = 0; i < matrix.length; i++) {
+            matrix[i][i] = '*';
+            matrix[i][matrix.length - 1 - i] = '*';
+            matrix[i][matrix.length / 2] = '*';
+            matrix[matrix.length / 2][i] = '*';
+        }
+ 
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
     }
 }
-
